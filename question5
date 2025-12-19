@@ -1,0 +1,55 @@
+import java.util.*;
+public class Question5 {
+	static String name;
+	static String accNumber;
+	static double balance;
+	public static void createAccount(Scanner sc) {
+		System.out.print("enter name");
+		name = sc.nextLine();
+		System.out.println("enter account number");
+		accNumber = sc.nextLine();
+		System.out.println("enter initial balance");
+		balance = Double.parseDouble(sc.nextLine());
+		System.out.println("account created successfully");
+		
+	}
+	public static void deposit(Scanner sc) {
+		try {
+		System.out.print("enter deposit amount");
+		double amount = Double.parseDouble(sc.nextLine());
+		if(amount <= 0) {
+		throw new IllegalArgumentException("amount must be greater than zero");
+		balance += amount;
+		System.out.println("amount deposited successfully");
+		} 
+		catch(Exception e) {
+			System.out.println(e.getMessage());
+		}
+		
+		}
+		public static void withdraw(Scanner sc) {
+			try {
+			System.out.println("enter withdrawal amount")	;
+			double amount = Double.parseDouble(sc.nextLine());
+			if(amount <= 0) {
+				throw new IllegalArgumentException("amount must be greater than zero");
+			}
+			if(amount > balance) {
+				throw new ArithmeticException("insufficient balance");
+				balance -= amount;
+			
+			System.out.println("amount withdrawal successfully");
+			} catch(Exception e) {
+				System.out.println(e.getMessage());
+			}
+			}
+		
+	
+	
+public static void main(String args[]) {
+Scanner sc = new Scanner(System.in)	;
+createAccount(sc);
+deposit(sc);
+withdraw(sc);
+}
+}
