@@ -1,0 +1,19 @@
+import java.util.Scanner;
+public class Question4 {
+public static void main(String args[]) {
+	Scanner sc = new Scanner(System.in);
+	String s1 = sc.next();
+	String s2 = sc.next();
+	System.out.println(s1.length());
+	System.out.println(s1.isEmpty());
+	System.out.println(s1.charAt(3));
+	System.out.println(s1.toString());
+	System.out.println(s1.trim().equals(s2));
+	System.out.println(s1.trim().compareTo(s2));
+	System.out.println(s1.indexOf("j"));
+	System.out.println(s1.startsWith("he"));
+	System.out.println(s2.substring(2, 7));
+	System.out.println(s2.trim());
+	System.out.println(s1.replace("java", "python"));
+}
+}
