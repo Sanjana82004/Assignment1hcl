@@ -1,0 +1,81 @@
+import java.util.*;
+public class Question3 {
+	public static void print(int arr[][], int m, int n) {
+		for( int i =0; i<m; i++) {
+			for(int j =0;j<n; j++) {
+				System.out.println(arr[i][j] + " ");
+			}
+		}
+	}
+	public static void add(int arr[][], int brr[][] , int m , int n) {
+		int c[][] = new int [m][n];
+		for(int i =0; i<m; i++) {
+			for(int j =0; j<n; j++) {
+				c[i][j] = arr[i][j] + brr[i][j];
+			}
+		}
+		print(c, m,n);
+	}
+	public static void subtract(int arr[][], int brr[][], int m , int n) {
+		int c[][] = new int[m][n];
+		for(int i =0; i<m; i++) {
+			for(int j =0; j<n;j++) {
+			c[i][j]	 = arr[i][j] - brr[i][j];
+			}
+		}
+		print(c, m, n);
+	}
+	public static void multiply(int arr[][], int brr[][], int r1, int c1, int r2, int c2) {
+		if(r2 != c1) {
+			System.out.println("multiplication not possible");
+			return ;
+		}
+		int c[][] = new int[r2][c1];
+		for(int i =0; i<r2; i++) {
+		for(int j =0; j< c1; j++) {
+			for(int k =0; k<c1; k++) {
+		c[i][j]	 += arr[i][k] *brr[k][j];
+		}
+		}
+		print(c,r1,c2);
+	}
+		public static void transpose(int arr[][], int r1, int c1) {
+			int t[][] = new int[r1][c1];
+			for(int i =0; i<r1; i++) {
+			for(int j=0; j<c1; j++)	{
+			t[j][i]	 = arr[i][j];
+			}
+			}
+			print(t,c1,r1);
+		}
+		
+public static void main(String args[]) {
+	Scanner sc = new Scanner(System.in);
+	System.out.println("enter number of rows of 1st matrix");
+	 int r1 = sc.nextInt();
+	 System.out.println("enter number of columns of 1st matrix");
+	 int c1 = sc.nextInt();
+	 int arr[][] = new int[r1][c1];
+	 for(int i =0; i<r1; i++) {
+		 for(int j =0; j<c1; j++) {
+			 arr[i][j] = sc.nextInt();
+		 }
+	 }
+	 System.out.println("enter number of rows of 2nd matrix");
+	 int r2 = sc.nextInt();
+	 System.out.println("enter number of column of 2nd matrix");
+	 int c2 = sc.nextInt();
+	 int brr[][] = new int[r2][c2];
+	 for(int i =0; i<r2; i++) {
+	for(int j =0; j<c2; j++)	{
+		brr[i][j] = sc.nextInt();
+	}
+	 }
+	 System.out.println("transpose of matrix 1st");
+	 transpose(arr, r1, c1);
+	 System.out.println("transpose of matrix 2nd");
+	 transpose(brr, r2, c2);
+	 add(arr, brr,r1, c1);
+	 subtract(arr, brr, r2, c2);
+}
+}
